@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML 5 Boilerplate</title>
+  </head>
+  <body>
+    <input
+        id="email"
+        type="email"
+        class="validate"
+        placeholder=" "
+        maxlength="30"
+        onchange="change()"
+        />
+    <input
+        id="password"
+        type="password"
+        placeholder=" "
+        maxlength="30"
+        onchange="change()"
+    />
+    <button id="register-btn" onclick="register()">Register</button>
+    <script>
+        function change() {
+            console.log("change happened");
+        }
+        function register() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            console.log(`email: ${email}, password: ${password}`);
+        }
+    </script>
+  </body>
+</html>
