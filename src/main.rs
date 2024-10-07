@@ -8,7 +8,7 @@ async fn main() {
     tracing_subscriber::fmt::init();
     let app = Router::new()
         .route("/", get(index))
-        .route("/hi", get(|| async { "Hello, world!" }))
+        .route("/hi", get(hi))
         .layer(tower_http::cors::CorsLayer::permissive());
     let addr = std::net::SocketAddr::new(
         std::net::IpAddr::V4(std::net::Ipv4Addr::new(127, 0, 0, 1)),
@@ -19,6 +19,10 @@ async fn main() {
         .serve(app.into_make_service())
         .await
         .unwrap();
+}
+async fn hi() -> &'static str {
+    info!("hi request recieved");
+    "Hello, world!"
 }
 async fn index() -> Response {
     info!("Request received");
