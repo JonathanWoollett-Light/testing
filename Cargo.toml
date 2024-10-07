@@ -11,6 +11,7 @@ tracing = "0.1.40"
 axum-server = "0.7.1"
 tokio = { version = "1.40.0", features = ["full"] }
 mime = "0.3.17"
+tower-http = { version = "0.5.2", features=["cors"] }
 
 [dev-dependencies]
 headless_chrome = "1.0.15"

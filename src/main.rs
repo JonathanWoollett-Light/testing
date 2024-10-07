@@ -6,7 +6,10 @@ use tracing::info;
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt::init();
-    let app = Router::new().route("/", get(index));
+    let app = Router::new()
+        .route("/", get(index))
+        .route("/hi", get(|| async { "Hello, world!" }))
+        .layer(tower_http::cors::CorsLayer::permissive());
     let addr = std::net::SocketAddr::new(
         std::net::IpAddr::V4(std::net::Ipv4Addr::new(127, 0, 0, 1)),
         4044,
