@@ -4,14 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = { version = "0.7.7" }
 serde = {version = "1.0.210", features=["derive"] }
 tracing-subscriber = "0.3.18"
 tracing = "0.1.40"
-axum-server = "0.7.1"
 tokio = { version = "1.40.0", features = ["full"] }
-mime = "0.3.17"
-tower-http = { version = "0.5.2", features=["cors"] }
-
-[dev-dependencies]
-headless_chrome = "1.0.15"
+bson = "2.13.0"
+mongodb = "3.1.0"
+uuid = { version = "1.10.0", features=["v4"]}
+zip-extract = "0.2.1"
+reqwest = { version = "0.12.7", features = ["cookies"] }
